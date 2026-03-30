@@ -246,7 +246,7 @@
             </Shape>
           </Transform>
           <Transform DEF='DeadTree_1'
-              translation='-8.63223 0.0302 -1.82339'
+              translation='-8.63223 0.20302 -1.82339'
               scale='0.0194355 0.0194355 0.0194355'>
             <Shape USE='_8'/>
           </Transform>
@@ -286,7 +286,7 @@
         </Transform>
         <Transform DEF='CampFire'>
           <Transform DEF='WhiteSmoke'
-              translation='5.54142 1.77094 -12.8592'
+              translation='5.54142 2.77094 -12.8592'
               rotation='-0.38262172710055 -0.91501255756198 -0.12787741573266 8.0127464074495e-5'
               scaleOrientation='3.3378592939403e-6 -6.1988845654091e-6 0.99999999997522 269.9999999978'>
             <Collision
@@ -346,7 +346,7 @@
           <Transform DEF='Stones'
               translation='4.18815 1.63889 -12.8128'
               rotation='-0.41328906245795 -0.26579769454434 0.87094416378293 238.50832670683'
-              scale='0.135738 0.164937 0.147221'>
+              scale='0.2135738 0.3164937 0.147221'>
             <Shape>
               <Appearance>
                 <Material
@@ -397,7 +397,7 @@
                 <FontStyle
                     family='"SANS"'
                     style='BOLD'
-                    size='0.2'/>
+                    size='0.5'/>
               </Text>
             </Shape>
           </Transform>
