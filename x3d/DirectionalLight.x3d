@@ -25,8 +25,6 @@
       <Inline url="assets/beispiel.wrl"/>
     </Transform>
 
-
-
     <!-- test -->
     <Transform translation="0 0 0">
         <Inline url="assets/ussEnterprise.wrl"/>
@@ -35,7 +33,6 @@
     <Transform translation="10 5 10">
         <Inline url="assets/beispiel.wrl"/>
     </Transform>
-
 
   </Scene>
 
