@@ -2,8 +2,8 @@
 <X3D profile="Immersive" version="3.3">
   <Scene>
 
-    <!-- ZENTRUM -->
-    <Transform translation="0 0 0">
+    <!-- Kegel -->
+    <Transform translation="0 -30 0">
        <Shape>
         <Cone bottomRadius="0.5" height="1"/>
         <Appearance>
@@ -28,7 +28,7 @@
 
 
     <!-- test -->
-    <Transform translation="-17 9 -10">
+    <Transform translation="0 0 0">
         <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
