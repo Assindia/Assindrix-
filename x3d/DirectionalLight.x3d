@@ -15,9 +15,9 @@
 
 
 <!-- NORD -->
-    <Transform translation="0 0 3">
+    <Transform translation="10 0 3">
       <Shape>
-        <Cone bottomRadius="0.5" height="2"/>
+        <Cone bottomRadius="0.5" height="1"/>
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
