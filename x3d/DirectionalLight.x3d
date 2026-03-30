@@ -9,8 +9,8 @@
         <Appearance>
           <Material diffuseColor="1 1 1"/>
         </Appearance>
-        <Inline url="assets/ussEnterprise.wrl"/>
       </Shape>
+        <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
 
@@ -18,7 +18,7 @@
 <!-- NORD -->
     <Transform translation="0 0 3">
       <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
+        <Cone bottomRadius="0.5" height="2"/>
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
@@ -29,11 +29,11 @@
 
 
     <!-- test -->
-    <Transform translation="-20 4 -10">
+    <Transform translation="-10 5 -10">
         <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
-    <Transform translation="10 3 -20">
+    <Transform translation="10 5 10">
         <Inline url="assets/beispiel.wrl"/>
     </Transform>
 
