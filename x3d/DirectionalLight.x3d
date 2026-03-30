@@ -246,15 +246,15 @@
             </Shape>
           </Transform>
           <Transform DEF='DeadTree_1'
-              translation='-8.63223 0.20302 -1.82339'
-              scale='0.0194355 0.0194355 0.0194355'>
+              translation='-8.63223 10.20302 -1.82339'
+              scale='0.0194355 0.30194355 0.0194355'>
             <Shape USE='_8'/>
           </Transform>
         </StaticGroup>
         <Transform DEF='Bird'
             translation='3.994161 4.55836 5.497097'
             rotation='0 1 0 32.6547282323863'
-            scale='0.23 0.23 0.23'>
+            scale='0.623 0.623 0.623'>
           <Group DEF='BirdAnimation'>
             <TimeSensor DEF='_9'
                 cycleInterval='20'
