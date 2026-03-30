@@ -22,9 +22,16 @@
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
+      <Inline url="assets/beispiel.wrl"/>
       </Shape>
     </Transform>
 
+
+
+    <!-- test -->
+    <Transform translation="0 0 0">
+        <Inline url="assets/ussEnterprise.wrl"/>
+    </Transform>
 
 
 
