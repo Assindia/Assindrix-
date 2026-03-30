@@ -22,17 +22,20 @@
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
-      <Inline url="assets/beispiel.wrl"/>
       </Shape>
+      <Inline url="assets/beispiel.wrl"/>
     </Transform>
 
 
 
     <!-- test -->
-    <Transform translation="100 10 -50">
+    <Transform translation="-20 4 -10">
         <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
+    <Transform translation="10 3 -20">
+        <Inline url="assets/beispiel.wrl"/>
+    </Transform>
 
 
   </Scene>
