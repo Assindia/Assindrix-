@@ -12,49 +12,7 @@
       </Shape>
     </Transform>
 
-    <!-- NORD -->
-    <Transform translation="0 0 3">
-      <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
-        <Appearance>
-          <Material diffuseColor="1 0 0"/>
-        </Appearance>
-      </Shape>
-      <Inline url="assets/ussEnterprise.wrl"/>
-    </Transform>
-
-    <!-- OST -->
-    <Transform translation="3 0 0">
-      <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
-        <Appearance>
-          <Material diffuseColor="0 1 0"/>
-        </Appearance>
-      </Shape>
-      <Inline url="assets/ussEnterprise.wrl"/>
-    </Transform>
-
-    <!-- SÜD -->
-    <Transform translation="0 0 -3">
-      <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
-        <Appearance>
-          <Material diffuseColor="0 0 1"/>
-        </Appearance>
-      </Shape>
-      <Inline url="assets/ussEnterprise.wrl"/>
-    </Transform>
-
-    <!-- WEST -->
-    <Transform translation="-3 0 0">
-      <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
-        <Appearance>
-          <Material diffuseColor="1 1 0"/>
-        </Appearance>
-      </Shape>
-      <Inline url="assets/ussEnterprise.wrl"/>
-    </Transform>
+   
 
   </Scene>
 </X3D>
