@@ -19,7 +19,6 @@
           <Material diffuseColor="1 0 0"/>
         </Appearance>
       </Shape>
-      <!-- <Inline url=""/> -->
     </Transform>
 
     <!-- OST -->
@@ -30,7 +29,6 @@
           <Material diffuseColor="0 1 0"/>
         </Appearance>
       </Shape>
-      <!-- <Inline url=""/> -->
     </Transform>
 
     <!-- SÜD -->
@@ -41,7 +39,6 @@
           <Material diffuseColor="0 0 1"/>
         </Appearance>
       </Shape>
-      <!-- <Inline url=""/> -->
     </Transform>
 
     <!-- WEST -->
@@ -52,7 +49,6 @@
           <Material diffuseColor="1 1 0"/>
         </Appearance>
       </Shape>
-      <!-- <Inline url=""/> -->
     </Transform>
    
 
