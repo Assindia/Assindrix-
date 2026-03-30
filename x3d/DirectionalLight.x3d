@@ -9,6 +9,7 @@
         <Appearance>
           <Material diffuseColor="1 1 1"/>
         </Appearance>
+        <Inline url="assets/ussEnterprise.wrl"/>
       </Shape>
     </Transform>
 
