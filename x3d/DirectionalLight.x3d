@@ -29,7 +29,7 @@
 
 
     <!-- test -->
-    <Transform translation="-10 5 -10">
+    <Transform translation="-17 9 -10">
         <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
