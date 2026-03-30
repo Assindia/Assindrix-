@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<X3D profile="Immersive" version="3.3">
+<x3d width='500px' height='400px'>
   <Scene>
 
     <!-- Kegel -->
@@ -52,3 +52,4 @@
         </shape>
     </scene>
 </x3d>
+<X3D profile="Immersive" version="3.3"> 
