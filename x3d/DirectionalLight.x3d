@@ -12,5 +12,20 @@
       </Shape>
     </Transform>
 
+
+
+<!-- NORD -->
+    <Transform translation="0 0 3">
+      <Shape>
+        <Cone bottomRadius="0.5" height="1"/>
+        <Appearance>
+          <Material diffuseColor="1 0 0"/>
+        </Appearance>
+      </Shape>
+    </Transform>
+
+
+
+
   </Scene>
 </X3D>
