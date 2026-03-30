@@ -76,7 +76,7 @@
                 transitionType='"ANIMATE"'/>
           </Viewpoint>
           <Viewpoint DEF='Walk'
-              description='Walk'
+              description='Have a Walk'
               position='-2.66861 1.59583 20.6487'
               orientation='-0.27422134021149 -0.96145213777611 -0.020308701050562 8.8094562605301'
               centerOfRotation='10.0673 22.6927 -1.25789'
@@ -246,7 +246,7 @@
             </Shape>
           </Transform>
           <Transform DEF='DeadTree_1'
-              translation='-8.63223 10.20302 -1.82339'
+              translation='7.63223 10.20302 3.82339'
               scale='0.0194355 0.30194355 0.0194355'>
             <Shape USE='_8'/>
           </Transform>
@@ -257,7 +257,7 @@
             scale='0.623 0.623 0.623'>
           <Group DEF='BirdAnimation'>
             <TimeSensor DEF='_9'
-                cycleInterval='20'
+                cycleInterval='80'
                 loop='true'
                 startTime='1473944698.218'
                 stopTime='1473944698.21799'/>
@@ -293,14 +293,14 @@
                 enabled='false'>
               <ParticleSystem
                   geometryType='POINT'
-                  maxParticles='1000'
+                  maxParticles='10000'
                   particleLifetime='4'
                   lifetimeVariation='0.5'
                   particleSize='1 1'
                   colorKey='0, 1'>
                 <PointEmitter
                     direction='0 0 0'
-                    speed='0.2'
+                    speed='0.7'
                     variation='0.5'
                     mass='0.1'
                     surfaceArea='0.1'/>
