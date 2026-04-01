@@ -3,9 +3,9 @@
   <Scene>
 
     <!-- Kegel -->
-    <Transform translation="0 -30 0">
+    <Transform translation="0 0 0">
        <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
+        <Cone bottomRadius="0.15" height="1"/>
         <Appearance>
           <Material diffuseColor="1 1 1"/>
         </Appearance>
@@ -15,9 +15,9 @@
 
 
 <!-- NORD -->
-    <Transform translation="10 0 3">
+    <Transform translation="0 0 0">
       <Shape>
-        <Cone bottomRadius="0.5" height="1"/>
+        <Cone bottomRadius="0.005" height="1"/>
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
@@ -26,7 +26,7 @@
     </Transform>
 
     <!-- test -->
-    <Transform translation="0 0 0">
+    <Transform translation="0 -5 0">
         <Inline url="assets/ussEnterprise.wrl"/>
     </Transform>
 
