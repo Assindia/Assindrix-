@@ -1,1 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile="Immersive" version="3.3"> 
+  <Scene>
 
+    <!-- Kegel -->
+    <Transform translation="0 0 0">
+       <Shape>
+        <Cone bottomRadius="0.15" height="1"/>
+        <Appearance>
+          <Material diffuseColor="1 1 1"/>
+        </Appearance>
+      </Shape>
+    </Transform>
+
+
+
+<!-- NORD -->
+    <Transform translation="0 0 0">
+      <Shape>
+        <Cone bottomRadius="0.005" height="1"/>
+        <Appearance>
+          <Material diffuseColor="1 0 0"/>
+        </Appearance>
+      </Shape>
+      <Inline url="assets/beispiel.wrl"/>
+    </Transform>
+
+    <!-- test -->
+    <Transform translation="0 -5 0">
+        <Inline url="assets/ussEnterprise.wrl"/>
+    </Transform>
+
+    <Transform translation="10 5 10">
+        <Inline url="assets/beispiel.wrl"/>
+    </Transform>
+
+  </Scene>
+
+</X3D>
