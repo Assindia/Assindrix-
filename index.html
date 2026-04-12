@@ -1,40 +1,1175 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>ASSINDIX</title>
+<meta http-equiv="refresh" content="30">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assindrix (Sandkasten)</title>
 <style>
-  body {
-  margin:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  font-family:sans-serif;
-  background:#ececec;
-  color:#003399;
-  }
-  a:active { 
-  font-size: 2.0em; background-color: yellow; 
-  color: black; 
-  }
-  h1 { font-size: 2.5em; align: center;}
-  p { font-size: 2.0em; align: center;}
-  </style>
+
+/* Floating Container */
+.floating-container {
+  position: fixed;
+  right: 5px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Men?*/
+.floating-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 20px;
+
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+  padding: 2px;
+
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  min-width: 100px;
+}
+
+.floating-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-item {
+  color: White;
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.menu-item:hover {
+  background: green;
+}
+
+.sub {
+  margin-left: 3px;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.toggle {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Floating Button (dein "Grafik-Ersatz") */
+.floating-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0066CC;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,2.8);
+  position: fixed;
+  right: 25px;
+  bottom: 45px;
+}
+
+/* gro?s G als Testgrafik */
+.big-g {
+  font-size: 100px;
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0.2;
+}
+
+
+
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #ececec;
+}
+
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns:  200px 1fr 200px ;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 3-spaltiges Layout f?r breitere Viewports */
+@media (min-width: 65em) { 
+	body {
+    grid-template-columns: 50px minmax(0, 1fr) 120px;	
+    grid-template-rows: auto 1fr min-content;
+	}
+}
+
+header, nav, main, article, section, aside, footer {
+   border-radius: 0 0.3em 0.10em;
+   border: ;
+   padding: .5em;
+}
+
+header,footer {
+	grid-column: 1 / -1;
+}
+
+header {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-row: 1;
+	grid-template-columns: 30em 1fr;
+	gap: 0.0em;
+	
+	background: #0066CC;
+	border-color: #ecece;
+	
+	font-family: sans-serif; 
+	font-size: 11px; 
+	color: #ececec;
+}
+
+header img {
+  width: 70px;
+  height: 90%;
+  object-fit: cover;
+  padding-top: 0.5em;
+  padding-left: 8.0em;
+}
+
+aside {
+	background: #CCCCCC;
+	border-color: #e7c157;
+    padding-left: 8.0em;
+}
+
+nav {
+	background: #CCCCCC;
+	border-color: #e7c157;
+    font-size: 1.0em;
+    padding-left: 2.0em;
+}
+
+main {
+	background: #ececec;
+	border-color: #003399;
+    padding-left: 1.5em;
+    font-family: sans-serif;
+	font-size: 1.0em;
+}
+
+
+footer {
+	background: #0066CC;
+	border-color: #8a9da8;
+	font-family: sans-serif; 
+	font-size: 11px; 
+	color: #ececec;
+}
+
+footer * {
+  float: right;
+  clear: right;
+  margin: 0 0 1em;
+}
+.s_css{
+	font-family: sans-serif; 
+	font-size: 14px;
+; border-color: black black black #00FF66; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: thick; background-color: #FFFFFF}
+
+ul {
+  padding-left: 1px;
+  margin: 0;
+  list-style: disc;
+}
+
+
+.floating-container {
+  position: fixed;
+  right: 15px;
+  bottom: 16.5%;
+  z-index: 1000;
+}
+
+.floating-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.floating-menu {
+  margin-bottom: 10px;
+  display: none;
+  flex-direction: column;
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.floating-menu.open {
+  display: flex;
+}
+
+code {
+  display: block;
+  font-family: monospace;
+  padding: 0.1em 0.5em;
+  background-color: #eee;
+  border-color: black black black #00FF66; 
+  border-style: solid; 
+  border-top-width: 2px; 
+  border-right-width: 2px; 
+  border-bottom-width: 2px; 
+  border-left-width: thick;
+}
+
+
+</style>
+<link rel="stylesheet" href="global-css.css" type="text/css">
+<script language="JavaScript">
+<!--
+
+const btn = document.querySelector('.floating-button');
+const menu = document.querySelector('.floating-menu');
+
+btn.addEventListener('click', () => {
+  menu.classList.toggle('open');
+});
+
+
+
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</script>
+
 </head>
+
 <body>
 
-  <h1>ASSINDRIX</h1>
-  <p>...</p>
-  <p><a href="x3d/example.html">VIEWER Test a</a></p><p>...</p>
-  <p><a href="https://create3000.github.io/sunrize/documentation/overview/">About Sunrize</a></p><p>...</p>
-  <p><a href="https://create3000.github.io/x_ite/">X_ITE 3D</a></p><p>...</p>
-  
-  <p><a href="https://www.cybertownrevival.com/#/">Cybertown Revival (CTR)</a></p> 
- 
-  <p><a href="url"></a></p><p>...</p> 
-  <p><a href="url"></a></p><p>...</p>
-  
+
+
+<p align="left"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"></font></b></p>
+<div class="page"> <header> <img alt="logo" src="logoTest.jpg" width=""> 
+  <h1 class="Titel">Assindrix (Sandkasten)</h1>
+  </header> 
+  <div class="content"> <aside id="news"> 
+    <p>News ... Aktuell</p>
+    </aside> <main> 
+    <h2>SANDKASTEN</h2>
+    <p>Viel Spa&szlig; beim Basteln</p>
+    <hr>
+    ...... &nbsp;&nbsp;&nbsp; 
+    <hr>
+    <h2 align="center">Farben</h2>
+    <p></p>
+    <table class="wikitable" style="width:30%; color:white; width:80%; text-align:center" align="center" bgcolor="#000000">
+      <tbody> 
+      <tr> 
+        <td width="34%"> 
+          <table>
+            <tbody> 
+            <tr> 
+              <th style="width:14%; background:lightgrey">HTML-Name </th>
+              <th style="width:7%; background:lightgrey;"><a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle#Hexadezimale_Schreibweise" title="Farbe/Farbmodelle">Hexcode</a><br>
+                <a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle" title="Farbe/Farbmodelle">R 
+                &nbsp; G &nbsp; B</a> </th>
+              <th style="width:7%; background:lightgrey">Dezimalcode<br>
+                <a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle" title="Farbe/Farbmodelle">R 
+                &nbsp; G &nbsp; B</a> </th>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Pink</b> 
+              </td>
+            </tr>
+            <tr style="background:pink;color:black"> 
+              <td>Pink </td>
+              <td>FF&nbsp;C0&nbsp;CB</td>
+              <td>255&nbsp;192&nbsp;203 </td>
+            </tr>
+            <tr style="background:lightpink;color:black"> 
+              <td>LightPink </td>
+              <td>FF&nbsp;B6&nbsp;C1</td>
+              <td>255&nbsp;182&nbsp;193 </td>
+            </tr>
+            <tr style="background:hotpink;color:white"> 
+              <td>HotPink </td>
+              <td>FF&nbsp;69&nbsp;B4</td>
+              <td>255&nbsp;105&nbsp;180 </td>
+            </tr>
+            <tr style="background:deeppink;color:white"> 
+              <td>DeepPink </td>
+              <td>FF&nbsp;14&nbsp;93</td>
+              <td>255&nbsp;&nbsp;20&nbsp;147 </td>
+            </tr>
+            <tr style="background:palevioletred;color:white"> 
+              <td>PaleVioletRed </td>
+              <td>DB&nbsp;70&nbsp;93</td>
+              <td>219&nbsp;112&nbsp;147 </td>
+            </tr>
+            <tr style="background:mediumvioletred;color:white"> 
+              <td>MediumVioletRed </td>
+              <td>C7&nbsp;15&nbsp;85</td>
+              <td>199&nbsp;&nbsp;21&nbsp;133 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Rot</b> 
+              </td>
+            </tr>
+            <tr style="background:lightsalmon;color:black"> 
+              <td>LightSalmon </td>
+              <td>FF&nbsp;A0&nbsp;7A</td>
+              <td>255&nbsp;160&nbsp;122 </td>
+            </tr>
+            <tr style="background:salmon;color:black"> 
+              <td>Salmon </td>
+              <td>FA&nbsp;80&nbsp;72</td>
+              <td>250&nbsp;128&nbsp;114 </td>
+            </tr>
+            <tr style="background:darksalmon;color:black"> 
+              <td>DarkSalmon </td>
+              <td>E9&nbsp;96&nbsp;7A</td>
+              <td>233&nbsp;150&nbsp;122 </td>
+            </tr>
+            <tr style="background:lightcoral;color:black"> 
+              <td>LightCoral </td>
+              <td>F0&nbsp;80&nbsp;80</td>
+              <td>240&nbsp;128&nbsp;128 </td>
+            </tr>
+            <tr style="background:indianred;color:white"> 
+              <td>IndianRed </td>
+              <td>CD&nbsp;5C&nbsp;5C</td>
+              <td>205&nbsp;&nbsp;92&nbsp;&nbsp;92 </td>
+            </tr>
+            <tr style="background:crimson;color:white;color:white"> 
+              <td>Crimson </td>
+              <td>DC&nbsp;14&nbsp;3C</td>
+              <td>220&nbsp;&nbsp;20&nbsp;&nbsp;60 </td>
+            </tr>
+            <tr style="background:fireBrick;color:white"> 
+              <td>FireBrick </td>
+              <td>B2&nbsp;22&nbsp;22</td>
+              <td>178&nbsp;&nbsp;34&nbsp;&nbsp;34 </td>
+            </tr>
+            <tr style="background:darkred;color:white"> 
+              <td>DarkRed </td>
+              <td>8B&nbsp;00&nbsp;00</td>
+              <td>139&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:red;color:white"> 
+              <td>Red </td>
+              <td>FF&nbsp;00&nbsp;00</td>
+              <td>255&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Orange</b> 
+              </td>
+            </tr>
+            <tr style="background:orangered;color:white"> 
+              <td>OrangeRed </td>
+              <td>FF&nbsp;45&nbsp;00</td>
+              <td>255&nbsp;&nbsp;69&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:tomato;color:white"> 
+              <td>Tomato </td>
+              <td>FF&nbsp;63&nbsp;47</td>
+              <td>255&nbsp;&nbsp;99&nbsp;&nbsp;71 </td>
+            </tr>
+            <tr style="background:coral;color:white"> 
+              <td>Coral </td>
+              <td>FF&nbsp;7F&nbsp;50</td>
+              <td>255&nbsp;127&nbsp;&nbsp;80 </td>
+            </tr>
+            <tr style="background:darkorange;color:white"> 
+              <td>DarkOrange </td>
+              <td>FF&nbsp;8C&nbsp;00</td>
+              <td>255&nbsp;140&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:orange;color:white"> 
+              <td>Orange </td>
+              <td>FF&nbsp;A5&nbsp;00</td>
+              <td>255&nbsp;165&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Gelb</b> 
+              </td>
+            </tr>
+            <tr style="background:yellow;color:black"> 
+              <td>Yellow </td>
+              <td>FF&nbsp;FF&nbsp;00</td>
+              <td>255&nbsp;255&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:lightyellow;color:black"> 
+              <td>LightYellow </td>
+              <td>FF&nbsp;FF&nbsp;E0</td>
+              <td>255&nbsp;255&nbsp;224 </td>
+            </tr>
+            <tr style="background:lemonchiffon;color:black"> 
+              <td>LemonChiffon </td>
+              <td>FF&nbsp;FA&nbsp;CD</td>
+              <td>255&nbsp;250&nbsp;205 </td>
+            </tr>
+            <tr style="background:lightgoldenrodyellow;color:black"> 
+              <td>LightGoldenrodYellow</td>
+              <td>FA&nbsp;FA&nbsp;D2</td>
+              <td>250&nbsp;250&nbsp;210 </td>
+            </tr>
+            <tr style="background:papayawhip;color:black"> 
+              <td>PapayaWhip </td>
+              <td>FF&nbsp;EF&nbsp;D5</td>
+              <td>255&nbsp;239&nbsp;213 </td>
+            </tr>
+            <tr style="background:moccasin;color:black"> 
+              <td>Moccasin </td>
+              <td>FF&nbsp;E4&nbsp;B5</td>
+              <td>255&nbsp;228&nbsp;181 </td>
+            </tr>
+            <tr style="background:peachpuff;color:black"> 
+              <td>PeachPuff </td>
+              <td>FF&nbsp;DA&nbsp;B9</td>
+              <td>255&nbsp;218&nbsp;185 </td>
+            </tr>
+            <tr style="background:palegoldenrod;color:black"> 
+              <td>PaleGoldenrod </td>
+              <td>EE&nbsp;E8&nbsp;AA</td>
+              <td>238&nbsp;232&nbsp;170 </td>
+            </tr>
+            <tr style="background:khaki;color:black"> 
+              <td>Khaki </td>
+              <td>F0&nbsp;E6&nbsp;8C</td>
+              <td>240&nbsp;230&nbsp;140 </td>
+            </tr>
+            <tr style="background:darkkhaki;color:black"> 
+              <td>DarkKhaki </td>
+              <td>BD&nbsp;B7&nbsp;6B</td>
+              <td>189&nbsp;183&nbsp;107 </td>
+            </tr>
+            <tr style="background:gold;color:black"> 
+              <td>Gold </td>
+              <td>FF&nbsp;D7&nbsp;00</td>
+              <td>255&nbsp;215&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Braun</b> 
+              </td>
+            </tr>
+            <tr style="background:cornsilk;color:black"> 
+              <td>Cornsilk </td>
+              <td>FF&nbsp;F8&nbsp;DC</td>
+              <td>255&nbsp;248&nbsp;220 </td>
+            </tr>
+            <tr style="background:blanchedalmond;color:black"> 
+              <td>BlanchedAlmond </td>
+              <td>FF&nbsp;EB&nbsp;CD</td>
+              <td>255&nbsp;235&nbsp;205 </td>
+            </tr>
+            <tr style="background:bisque;color:black"> 
+              <td>Bisque </td>
+              <td>FF&nbsp;E4&nbsp;C4</td>
+              <td>255&nbsp;228&nbsp;196 </td>
+            </tr>
+            <tr style="background:navajowhite;color:black"> 
+              <td>NavajoWhite </td>
+              <td>FF&nbsp;DE&nbsp;AD</td>
+              <td>255&nbsp;222&nbsp;173 </td>
+            </tr>
+            <tr style="background:wheat;color:black"> 
+              <td>Wheat </td>
+              <td>F5&nbsp;DE&nbsp;B3</td>
+              <td>245&nbsp;222&nbsp;179 </td>
+            </tr>
+            <tr style="background:burlywood;color:black"> 
+              <td>BurlyWood </td>
+              <td>DE&nbsp;B8&nbsp;87</td>
+              <td>222&nbsp;184&nbsp;135 </td>
+            </tr>
+            <tr style="background:tan;color:black"> 
+              <td>Tan </td>
+              <td>D2&nbsp;B4&nbsp;8C</td>
+              <td>210&nbsp;180&nbsp;140 </td>
+            </tr>
+            <tr style="background:rosybrown;color:black"> 
+              <td>RosyBrown </td>
+              <td>BC&nbsp;8F&nbsp;8F</td>
+              <td>188&nbsp;143&nbsp;143 </td>
+            </tr>
+            <tr style="background:sandybrown;color:black"> 
+              <td>SandyBrown </td>
+              <td>F4&nbsp;A4&nbsp;60</td>
+              <td>244&nbsp;164&nbsp;&nbsp;96 </td>
+            </tr>
+            <tr style="background:goldenrod;color:black"> 
+              <td>Goldenrod </td>
+              <td>DA&nbsp;A5&nbsp;20</td>
+              <td>218&nbsp;165&nbsp;&nbsp;32 </td>
+            </tr>
+            <tr style="background:darkgoldenrod;color:white"> 
+              <td>DarkGoldenrod </td>
+              <td>B8&nbsp;86&nbsp;0B</td>
+              <td>184&nbsp;134&nbsp;&nbsp;11 </td>
+            </tr>
+            <tr style="background:Peru;color:white"> 
+              <td>Peru </td>
+              <td>CD&nbsp;85&nbsp;3F</td>
+              <td>205&nbsp;133&nbsp;&nbsp;63 </td>
+            </tr>
+            <tr style="background:chocolate;color:white"> 
+              <td>Chocolate </td>
+              <td>D2&nbsp;69&nbsp;1E</td>
+              <td>210&nbsp;105&nbsp;&nbsp;30 </td>
+            </tr>
+            <tr style="background:saddlebrown;color:white"> 
+              <td>SaddleBrown </td>
+              <td>8B&nbsp;45&nbsp;13</td>
+              <td>139&nbsp;&nbsp;69&nbsp;&nbsp;19 </td>
+            </tr>
+            <tr style="background:sienna;color:white"> 
+              <td>Sienna </td>
+              <td>A0&nbsp;52&nbsp;2D</td>
+              <td>160&nbsp;&nbsp;82&nbsp;&nbsp;45 </td>
+            </tr>
+            <tr style="background:brown;color:white"> 
+              <td>Brown </td>
+              <td>A5&nbsp;2A&nbsp;2A</td>
+              <td>165&nbsp;&nbsp;42&nbsp;&nbsp;42 </td>
+            </tr>
+            <tr style="background:maroon;color:white"> 
+              <td>Maroon </td>
+              <td>80&nbsp;00&nbsp;00</td>
+              <td>128&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            </tbody> 
+          </table>
+          <table>
+            <tbody> 
+            <tr> 
+              <th style="width:14%; background:lightgrey" height="41">HTML-Name 
+              </th>
+              <th style="width:7%; background:lightgrey" height="41"><a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle#Hexadezimale_Schreibweise" title="Farbe/Farbmodelle">Hexcode</a><br>
+                <a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle#Hexadezimale_Schreibweise" title="Farbe/Farbmodelle">R 
+                &nbsp; G &nbsp; B</a> </th>
+              <th style="width:7%; background:lightgrey" height="41">Dezimalcode<br>
+                R &nbsp; G &nbsp; B </th>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>GrÃ¼n</b> 
+              </td>
+            </tr>
+            <tr style="background:darkolivegreen;color:white"> 
+              <td>DarkOliveGreen </td>
+              <td>55&nbsp;6B&nbsp;2F</td>
+              <td>&nbsp;85&nbsp;107&nbsp;&nbsp;47 </td>
+            </tr>
+            <tr style="background:olive;color:white"> 
+              <td>Olive </td>
+              <td>80&nbsp;80&nbsp;00</td>
+              <td>128&nbsp;128&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:olivedrab;color:white"> 
+              <td>OliveDrab </td>
+              <td>6B&nbsp;8E&nbsp;23</td>
+              <td>107&nbsp;142&nbsp;&nbsp;35 </td>
+            </tr>
+            <tr style="background:yellowgreen;color:black"> 
+              <td>YellowGreen </td>
+              <td>9A&nbsp;CD&nbsp;32</td>
+              <td>154&nbsp;205&nbsp;&nbsp;50 </td>
+            </tr>
+            <tr style="background:limegreen;color:black"> 
+              <td>LimeGreen </td>
+              <td>32&nbsp;CD&nbsp;32</td>
+              <td>&nbsp;50&nbsp;205&nbsp;&nbsp;50 </td>
+            </tr>
+            <tr style="background:lime;color:black"> 
+              <td>Lime </td>
+              <td>00&nbsp;FF&nbsp;00</td>
+              <td>&nbsp;&nbsp;0&nbsp;255&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:lawngreen;color:black"> 
+              <td>LawnGreen </td>
+              <td>7C&nbsp;FC&nbsp;00</td>
+              <td>124&nbsp;252&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:chartreuse;color:black"> 
+              <td>Chartreuse </td>
+              <td>7F&nbsp;FF&nbsp;00</td>
+              <td>127&nbsp;255&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:greenyellow;color:black"> 
+              <td>GreenYellow </td>
+              <td>AD&nbsp;FF&nbsp;2F</td>
+              <td>173&nbsp;255&nbsp;&nbsp;47 </td>
+            </tr>
+            <tr style="background:springgreen;color:black"> 
+              <td>SpringGreen </td>
+              <td>00&nbsp;FF&nbsp;7F</td>
+              <td>&nbsp;&nbsp;0&nbsp;255&nbsp;127 </td>
+            </tr>
+            <tr style="background:mediumspringgreen;color:black"> 
+              <td>MediumSpringGreen </td>
+              <td>00&nbsp;FA&nbsp;9A</td>
+              <td>&nbsp;&nbsp;0&nbsp;250&nbsp;154 </td>
+            </tr>
+            <tr style="background:lightgreen;color:black"> 
+              <td>LightGreen </td>
+              <td>90&nbsp;EE&nbsp;90</td>
+              <td>144&nbsp;238&nbsp;144 </td>
+            </tr>
+            <tr style="background:palegreen;color:black"> 
+              <td>PaleGreen </td>
+              <td>98&nbsp;FB&nbsp;98</td>
+              <td>152&nbsp;251&nbsp;152 </td>
+            </tr>
+            <tr style="background:darkseagreen;color:black"> 
+              <td>DarkSeaGreen </td>
+              <td>8F&nbsp;BC&nbsp;8F</td>
+              <td>143&nbsp;188&nbsp;143 </td>
+            </tr>
+            <tr style="background:mediumseagreen;color:white"> 
+              <td>MediumSeaGreen </td>
+              <td>3C&nbsp;B3&nbsp;71</td>
+              <td>&nbsp;60&nbsp;179&nbsp;113 </td>
+            </tr>
+            <tr style="background:seagreen;color:white"> 
+              <td>SeaGreen </td>
+              <td>2E&nbsp;8B&nbsp;57</td>
+              <td>&nbsp;46&nbsp;139&nbsp;&nbsp;87 </td>
+            </tr>
+            <tr style="background:forestgreen;color:white"> 
+              <td>ForestGreen </td>
+              <td>22&nbsp;8B&nbsp;22</td>
+              <td>&nbsp;34&nbsp;139&nbsp;&nbsp;34 </td>
+            </tr>
+            <tr style="background:green;color:white"> 
+              <td>Green </td>
+              <td>00&nbsp;80&nbsp;00</td>
+              <td>&nbsp;&nbsp;0&nbsp;128&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr style="background:darkgreen;color:white"> 
+              <td>DarkGreen </td>
+              <td>00&nbsp;64&nbsp;00</td>
+              <td>&nbsp;&nbsp;0&nbsp;100&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Cyan</b> 
+              </td>
+            </tr>
+            <tr style="background:mediumaquamarine;color:black"> 
+              <td>MediumAquamarine </td>
+              <td>66&nbsp;CD&nbsp;AA</td>
+              <td>102&nbsp;205&nbsp;170 </td>
+            </tr>
+            <tr style="background:aqua;color:black"> 
+              <td>Aqua </td>
+              <td>00&nbsp;FF&nbsp;FF</td>
+              <td>&nbsp;&nbsp;0&nbsp;255&nbsp;255 </td>
+            </tr>
+            <tr style="background:cyan;color:black"> 
+              <td>Cyan </td>
+              <td>00&nbsp;FF&nbsp;FF</td>
+              <td>&nbsp;&nbsp;0&nbsp;255&nbsp;255 </td>
+            </tr>
+            <tr style="background:lightcyan;color:black"> 
+              <td>LightCyan </td>
+              <td>E0&nbsp;FF&nbsp;FF</td>
+              <td>224&nbsp;255&nbsp;255 </td>
+            </tr>
+            <tr style="background:paleturquoise;color:black"> 
+              <td>PaleTurquoise </td>
+              <td>AF&nbsp;EE&nbsp;EE</td>
+              <td>175&nbsp;238&nbsp;238 </td>
+            </tr>
+            <tr style="background:aquamarine;color:black"> 
+              <td>Aquamarine </td>
+              <td>7F&nbsp;FF&nbsp;D4</td>
+              <td>127&nbsp;255&nbsp;212 </td>
+            </tr>
+            <tr style="background:turquoise;color:black"> 
+              <td>Turquoise </td>
+              <td>40&nbsp;E0&nbsp;D0</td>
+              <td>&nbsp;64&nbsp;224&nbsp;208 </td>
+            </tr>
+            <tr style="background:mediumturquoise;color:black"> 
+              <td>MediumTurquoise </td>
+              <td>48&nbsp;D1&nbsp;CC</td>
+              <td>&nbsp;72&nbsp;209&nbsp;204 </td>
+            </tr>
+            <tr style="background:darkturquoise;color:white"> 
+              <td>DarkTurquoise </td>
+              <td>00&nbsp;CE&nbsp;D1</td>
+              <td>&nbsp;&nbsp;0&nbsp;206&nbsp;209 </td>
+            </tr>
+            <tr style="background:lightseagreen;color:white"> 
+              <td>LightSeaGreen </td>
+              <td>20&nbsp;B2&nbsp;AA</td>
+              <td>&nbsp;32&nbsp;178&nbsp;170 </td>
+            </tr>
+            <tr style="background:cadetblue;color:white"> 
+              <td>CadetBlue </td>
+              <td>5F&nbsp;9E&nbsp;A0</td>
+              <td>&nbsp;95&nbsp;158&nbsp;160 </td>
+            </tr>
+            <tr style="background:darkcyan;color:white"> 
+              <td>DarkCyan </td>
+              <td>00&nbsp;8B&nbsp;8B</td>
+              <td>&nbsp;&nbsp;0&nbsp;139&nbsp;139 </td>
+            </tr>
+            <tr style="background:teal;color:white"> 
+              <td>Teal </td>
+              <td>00&nbsp;80&nbsp;80</td>
+              <td>&nbsp;&nbsp;0&nbsp;128&nbsp;128 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Blau</b> 
+              </td>
+            </tr>
+            <tr style="background:lightsteelblue;color:black"> 
+              <td>LightSteelBlue </td>
+              <td>B0&nbsp;C4&nbsp;DE</td>
+              <td>176&nbsp;196&nbsp;222 </td>
+            </tr>
+            <tr style="background:powderblue;color:black"> 
+              <td>PowderBlue </td>
+              <td>B0&nbsp;E0&nbsp;E6</td>
+              <td>176&nbsp;224&nbsp;230 </td>
+            </tr>
+            <tr style="background:lightblue;color:black"> 
+              <td>LightBlue </td>
+              <td>AD&nbsp;D8&nbsp;E6</td>
+              <td>173&nbsp;216&nbsp;230 </td>
+            </tr>
+            <tr style="background:skyblue;color:black"> 
+              <td>SkyBlue </td>
+              <td>87&nbsp;CE&nbsp;EB</td>
+              <td>135&nbsp;206&nbsp;235 </td>
+            </tr>
+            <tr style="background:lightskyblue;color:black"> 
+              <td>LightSkyBlue </td>
+              <td>87&nbsp;CE&nbsp;FA</td>
+              <td>135&nbsp;206&nbsp;250 </td>
+            </tr>
+            <tr style="background:deepskyblue;color:white"> 
+              <td>DeepSkyBlue </td>
+              <td>00&nbsp;BF&nbsp;FF</td>
+              <td>&nbsp;&nbsp;0&nbsp;191&nbsp;255 </td>
+            </tr>
+            <tr style="background:dodgerblue;color:white"> 
+              <td>DodgerBlue </td>
+              <td>1E&nbsp;90&nbsp;FF</td>
+              <td>&nbsp;30&nbsp;144&nbsp;255 </td>
+            </tr>
+            <tr style="background:cornflowerblue;color:white"> 
+              <td>CornflowerBlue </td>
+              <td>64&nbsp;95&nbsp;ED</td>
+              <td>100&nbsp;149&nbsp;237 </td>
+            </tr>
+            <tr style="background:steelblue;color:white"> 
+              <td>SteelBlue </td>
+              <td>46&nbsp;82&nbsp;B4</td>
+              <td>&nbsp;70&nbsp;130&nbsp;180 </td>
+            </tr>
+            <tr style="background:royalblue;color:white"> 
+              <td>RoyalBlue </td>
+              <td>41&nbsp;69&nbsp;E1</td>
+              <td>&nbsp;65&nbsp;105&nbsp;225 </td>
+            </tr>
+            <tr style="background:blue;color:white"> 
+              <td>Blue </td>
+              <td>00&nbsp;00&nbsp;FF</td>
+              <td>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;255 </td>
+            </tr>
+            <tr style="background:mediumblue;color:white"> 
+              <td>MediumBlue </td>
+              <td>00&nbsp;00&nbsp;CD</td>
+              <td>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;205 </td>
+            </tr>
+            <tr style="background:darkblue;color:white"> 
+              <td>DarkBlue </td>
+              <td>00&nbsp;00&nbsp;8B</td>
+              <td>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;139 </td>
+            </tr>
+            <tr style="background:navy;color:white"> 
+              <td>Navy </td>
+              <td>00&nbsp;00&nbsp;80</td>
+              <td>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;128 </td>
+            </tr>
+            <tr style="background:midnightblue;color:white"> 
+              <td>MidnightBlue </td>
+              <td>19&nbsp;19&nbsp;70</td>
+              <td>&nbsp;25&nbsp;&nbsp;25&nbsp;112 </td>
+            </tr>
+            </tbody> 
+          </table>
+          <table>
+            <tbody> 
+            <tr> 
+              <th style="width:14%; background:lightgrey">HTML-Name </th>
+              <th style="width:7%; background:lightgrey"><a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle#Hexadezimale_Schreibweise" title="Farbe/Farbmodelle">Hexcode</a><br>
+                <a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle" title="Farbe/Farbmodelle">R 
+                &nbsp; G &nbsp; B</a> </th>
+              <th style="width:7%; background:lightgrey">Dezimalcode<br>
+                <a href="https://wiki.selfhtml.org/wiki/Farbe/Farbmodelle#Hexadezimale_Schreibweise" title="Farbe/Farbmodelle">R 
+                &nbsp; G &nbsp; B</a> </th>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Violett</b> 
+              </td>
+            </tr>
+            <tr style="background:lavender;color:black"> 
+              <td>Lavender </td>
+              <td>E6&nbsp;E6&nbsp;FA</td>
+              <td>230&nbsp;230&nbsp;250 </td>
+            </tr>
+            <tr style="background:thistle;color:black"> 
+              <td>Thistle </td>
+              <td>D8&nbsp;BF&nbsp;D8</td>
+              <td>216&nbsp;191&nbsp;216 </td>
+            </tr>
+            <tr style="background:plum;color:black"> 
+              <td>Plum </td>
+              <td>DD&nbsp;A0&nbsp;DD</td>
+              <td>221&nbsp;160&nbsp;221 </td>
+            </tr>
+            <tr style="background:violet;color:black"> 
+              <td>Violet </td>
+              <td>EE&nbsp;82&nbsp;EE</td>
+              <td>238&nbsp;130&nbsp;238 </td>
+            </tr>
+            <tr style="background:orchid;color:black"> 
+              <td>Orchid </td>
+              <td>DA&nbsp;70&nbsp;D6</td>
+              <td>218&nbsp;112&nbsp;214 </td>
+            </tr>
+            <tr style="background:fuchsia;color:white"> 
+              <td>Fuchsia </td>
+              <td>FF&nbsp;00&nbsp;FF</td>
+              <td>255&nbsp;&nbsp;&nbsp;0&nbsp;255 </td>
+            </tr>
+            <tr style="background:Magenta;color:white"> 
+              <td>Magenta </td>
+              <td>FF&nbsp;00&nbsp;FF</td>
+              <td>255&nbsp;&nbsp;&nbsp;0&nbsp;255 </td>
+            </tr>
+            <tr style="background:mediumorchid;color:white"> 
+              <td>MediumOrchid </td>
+              <td>BA&nbsp;55&nbsp;D3</td>
+              <td>186&nbsp;&nbsp;85&nbsp;211 </td>
+            </tr>
+            <tr style="background:mediumpurple;color:white"> 
+              <td>MediumPurple </td>
+              <td>93&nbsp;70&nbsp;DB</td>
+              <td>147&nbsp;112&nbsp;219 </td>
+            </tr>
+            <tr style="background:blueviolet;color:white"> 
+              <td>BlueViolet </td>
+              <td>8A&nbsp;2B&nbsp;E2</td>
+              <td>138&nbsp;&nbsp;43&nbsp;226 </td>
+            </tr>
+            <tr style="background:darkviolet;color:white"> 
+              <td>DarkViolet </td>
+              <td>94&nbsp;00&nbsp;D3</td>
+              <td>148&nbsp;&nbsp;&nbsp;0&nbsp;211 </td>
+            </tr>
+            <tr style="background:darkorchid;color:white"> 
+              <td>DarkOrchid </td>
+              <td>99&nbsp;32&nbsp;CC</td>
+              <td>153&nbsp;&nbsp;50&nbsp;204 </td>
+            </tr>
+            <tr style="background:darkmagenta;color:white"> 
+              <td>DarkMagenta </td>
+              <td>8B&nbsp;00&nbsp;8B</td>
+              <td>139&nbsp;&nbsp;&nbsp;0&nbsp;139 </td>
+            </tr>
+            <tr style="background:purple;color:white"> 
+              <td>Purple </td>
+              <td>80&nbsp;00&nbsp;80</td>
+              <td>128&nbsp;&nbsp;&nbsp;0&nbsp;128 </td>
+            </tr>
+            <tr style="background:indigo;color:white"> 
+              <td>Indigo </td>
+              <td>4B&nbsp;00&nbsp;82</td>
+              <td>&nbsp;75&nbsp;&nbsp;&nbsp;0&nbsp;130 </td>
+            </tr>
+            <tr style="background:darkslateblue;color:white"> 
+              <td>DarkSlateBlue </td>
+              <td>48&nbsp;3D&nbsp;8B</td>
+              <td>&nbsp;72&nbsp;&nbsp;61&nbsp;139 </td>
+            </tr>
+            <tr style="background:slateblue;color:white"> 
+              <td>SlateBlue </td>
+              <td>6A&nbsp;5A&nbsp;CD</td>
+              <td>106&nbsp;&nbsp;90&nbsp;205 </td>
+            </tr>
+            <tr style="background:mediumslateblue;color:white"> 
+              <td>MediumSlateBlue </td>
+              <td>7B&nbsp;68&nbsp;EE</td>
+              <td>123&nbsp;104&nbsp;238 </td>
+            </tr>
+            <tr style="background:rebeccapurple;color:white"> 
+              <td>RebeccaPurple </td>
+              <td>66&nbsp;33&nbsp;99</td>
+              <td>102&nbsp;51&nbsp;153 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>WeiÃŸ</b> 
+              </td>
+            </tr>
+            <tr style="background:white;color:black"> 
+              <td>White </td>
+              <td>FF&nbsp;FF&nbsp;FF</td>
+              <td>255&nbsp;255&nbsp;255 </td>
+            </tr>
+            <tr style="background:snow;color:black"> 
+              <td>Snow </td>
+              <td>FF&nbsp;FA&nbsp;FA</td>
+              <td>255&nbsp;250&nbsp;250 </td>
+            </tr>
+            <tr style="background:honeydew;color:black"> 
+              <td>Honeydew </td>
+              <td>F0&nbsp;FF&nbsp;F0</td>
+              <td>240&nbsp;255&nbsp;240 </td>
+            </tr>
+            <tr style="background:mintcream;color:black"> 
+              <td>MintCream </td>
+              <td>F5&nbsp;FF&nbsp;FA</td>
+              <td>245&nbsp;255&nbsp;250 </td>
+            </tr>
+            <tr style="background:azure;color:black"> 
+              <td>Azure </td>
+              <td>F0&nbsp;FF&nbsp;FF</td>
+              <td>240&nbsp;255&nbsp;255 </td>
+            </tr>
+            <tr style="background:aliceblue;color:black"> 
+              <td>AliceBlue </td>
+              <td>F0&nbsp;F8&nbsp;FF</td>
+              <td>240&nbsp;248&nbsp;255 </td>
+            </tr>
+            <tr style="background:ghostwhite;color:black"> 
+              <td>GhostWhite </td>
+              <td>F8&nbsp;F8&nbsp;FF</td>
+              <td>248&nbsp;248&nbsp;255 </td>
+            </tr>
+            <tr style="background:whitesmoke;color:black"> 
+              <td>WhiteSmoke </td>
+              <td>F5&nbsp;F5&nbsp;F5</td>
+              <td>245&nbsp;245&nbsp;245 </td>
+            </tr>
+            <tr style="background:seashell;color:black"> 
+              <td>Seashell </td>
+              <td>FF&nbsp;F5&nbsp;EE</td>
+              <td>255&nbsp;245&nbsp;238 </td>
+            </tr>
+            <tr style="background:beige;color:black"> 
+              <td>Beige </td>
+              <td>F5&nbsp;F5&nbsp;DC</td>
+              <td>245&nbsp;245&nbsp;220 </td>
+            </tr>
+            <tr style="background:oldlace;color:black"> 
+              <td>OldLace </td>
+              <td>FD&nbsp;F5&nbsp;E6</td>
+              <td>253&nbsp;245&nbsp;230 </td>
+            </tr>
+            <tr style="background:floralwhite;color:black"> 
+              <td>FloralWhite </td>
+              <td>FF&nbsp;FA&nbsp;F0</td>
+              <td>255&nbsp;250&nbsp;240 </td>
+            </tr>
+            <tr style="background:ivory;color:black"> 
+              <td>Ivory </td>
+              <td>FF&nbsp;FF&nbsp;F0</td>
+              <td>255&nbsp;255&nbsp;240 </td>
+            </tr>
+            <tr style="background:antiquewhite;color:black"> 
+              <td>AntiqueWhite </td>
+              <td>FA&nbsp;EB&nbsp;D7</td>
+              <td>250&nbsp;235&nbsp;215 </td>
+            </tr>
+            <tr style="background:linen;color:black"> 
+              <td>Linen </td>
+              <td>FA&nbsp;F0&nbsp;E6</td>
+              <td>250&nbsp;240&nbsp;230 </td>
+            </tr>
+            <tr style="background:lavenderblush;color:black"> 
+              <td>LavenderBlush </td>
+              <td>FF&nbsp;F0&nbsp;F5</td>
+              <td>255&nbsp;240&nbsp;245 </td>
+            </tr>
+            <tr style="background:mistyrose;color:black"> 
+              <td>MistyRose </td>
+              <td>FF&nbsp;E4&nbsp;E1</td>
+              <td>255&nbsp;228&nbsp;225 </td>
+            </tr>
+            <tr> 
+              <td colspan="3" style="background:whitesmoke; color:slategrey; text-align:left;"><b>Grau/Schwarz</b> 
+              </td>
+            </tr>
+            <tr style="background:gainsboro;color:black"> 
+              <td>Gainsboro </td>
+              <td>DC&nbsp;DC&nbsp;DC</td>
+              <td>220&nbsp;220&nbsp;220 </td>
+            </tr>
+            <tr style="background:lightgrey; color:black;"> 
+              <td>LightGray </td>
+              <td>D3&nbsp;D3&nbsp;D3</td>
+              <td>211&nbsp;211&nbsp;211 </td>
+            </tr>
+            <tr style="background:silver;color:black"> 
+              <td>Silver </td>
+              <td>C0&nbsp;C0&nbsp;C0</td>
+              <td>192&nbsp;192&nbsp;192 </td>
+            </tr>
+            <tr style="background:darkgrey; color:black;"> 
+              <td>DarkGray </td>
+              <td>A9&nbsp;A9&nbsp;A9</td>
+              <td>169&nbsp;169&nbsp;169 </td>
+            </tr>
+            <tr style="background:gray;color:black"> 
+              <td>Gray </td>
+              <td>80&nbsp;80&nbsp;80</td>
+              <td>128&nbsp;128&nbsp;128 </td>
+            </tr>
+            <tr style="background:dimgrey; color:white;"> 
+              <td>DimGray </td>
+              <td>69&nbsp;69&nbsp;69</td>
+              <td>105&nbsp;105&nbsp;105 </td>
+            </tr>
+            <tr style="background:lightslategrey; color:white;"> 
+              <td>LightSlateGray </td>
+              <td>77&nbsp;88&nbsp;99</td>
+              <td>119&nbsp;136&nbsp;153 </td>
+            </tr>
+            <tr style="background:slategrey; color:white;"> 
+              <td>SlateGray </td>
+              <td>70&nbsp;80&nbsp;90</td>
+              <td>112&nbsp;128&nbsp;144 </td>
+            </tr>
+            <tr style="background:darkslategrey; color:white;"> 
+              <td>DarkSlateGray </td>
+              <td>2F&nbsp;4F&nbsp;4F</td>
+              <td>&nbsp;47&nbsp;&nbsp;79&nbsp;&nbsp;79 </td>
+            </tr>
+            <tr style="background:black;color:white"> 
+              <td>Black </td>
+              <td>00&nbsp;00&nbsp;00</td>
+              <td>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0 </td>
+            </tr>
+            </tbody> 
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+      </tbody> 
+    </table>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    </main> <nav> 
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="#">OnAir</a></li>
+      <br>
+      <li><a href="#">Aktuelles</a></li>
+      <li><a href="#">Thema 1</a></li>
+      <li><a href="#">Thema 2</a></li>
+      <br>
+      <li><a href="#kontakt.html">Kontakt</a></li>
+    </ul>
+
+
+
+    </nav> </div>
+  <footer> 
+  <p>2026 05 - ICH</p>
+  </footer> </div>
+
+
+<div class="floating-container">
+
+  <div class="floating-menu" id="menu">
+    
+    
+	<div class="menu-item"><a href="#">OnAir</a></div>
+    <div class="menu-item">Projekte</div>
+
+    <div class="menu-item toggle" onclick="toggleSub()">
+      X3D / VRML ?
+    </div>
+    <div class="menu-item sub">Szene 1</div>
+    <div class="menu-item sub">Experiment 1</div>
+
+    <div class="menu-item">Archiv</div>
+  </div>
+
+  <div class="floating-button" onclick="toggleMenu()"> <img src="YahooGeoCities%202025_11_02.gif" width="34" height="38"></div>
+
+</div>
+
+
+
+
+
+
+<script>
+let menuOpen = false;
+let subOpen = true;
+
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menuOpen = !menuOpen;
+  menu.classList.toggle('open', menuOpen);
+}
+
+function toggleSub() {
+  const subs = document.querySelectorAll('.sub');
+  subOpen = !subOpen;
+  subs.forEach(el => {
+    el.style.display = subOpen ? 'block' : 'none';
+  });
+}
+
+// initial state
+window.onload = () => {
+  document.querySelectorAll('.sub').forEach(el => {
+    el.style.display = 'block';
+  });
+};
+</script>
+
 </body>
 </html>
