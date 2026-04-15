@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile="Immersive" version="3.3"> 
+  <Scene>
+
+    <!-- Kegel -->
+    <Transform translation="0 -10 0">
+       <Shape>
+        <Cone bottomRadius="0.15" height="1"/>
+        <Appearance>
+          <Material diffuseColor="1 1 1"/>
+        </Appearance>
+      </Shape>
+    </Transform>
+
+
+
+<!-- NORD -->
+    <Transform translation="0 0 0">
+      <Shape>
+        <Cone bottomRadius="0.005" height="1"/>
+        <Appearance>
+          <Material diffuseColor="1 0 0"/>
+        </Appearance>
+      </Shape>
+      <Inline url=""/>
+    </Transform>
+
+    <!-- test -->
+    <Transform translation="0 -5 0">
+        <Inline url=""/>
+    </Transform>
+
+    <Transform translation="0 0 0">
+        <Inline url="ct_Fleamarket"/>
+    </Transform>
+
+  </Scene>
+
+</X3D>
