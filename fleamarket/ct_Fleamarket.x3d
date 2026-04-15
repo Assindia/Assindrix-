@@ -31,7 +31,7 @@
     </Transform>
 
     <Transform translation="0 0 0">
-        <Inline url="ct_Fleamarket"/>
+        <Inline url="ct_Fleamarket.wrl"/>
     </Transform>
 
   </Scene>
