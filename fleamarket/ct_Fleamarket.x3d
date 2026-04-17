@@ -1,12 +1,13 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <X3D profile="Immersive" version="3.3"> 
+
   <Scene>
 
     <!-- Kegel -->
     <Transform translation="0 0 0">
        <Shape>
-        <Cone bottomRadius="0.15" height="1"/>
+        <Cone bottomRadius="5.15" height="10"/>
         <Appearance>
           <Material diffuseColor="1 1 1"/>
         </Appearance>
@@ -18,12 +19,12 @@
 <!-- NORD -->
     <Transform translation="0 0 0">
       <Shape>
-        <Cone bottomRadius="0.005" height="1"/>
+        <Cone bottomRadius="0.15" height="1"/>
         <Appearance>
           <Material diffuseColor="1 0 0"/>
         </Appearance>
       </Shape>
-      <Inline url="assets/beispiel.wrl"/>
+      <Inline url=""/>
     </Transform>
 
     <!-- test -->
@@ -32,13 +33,13 @@
     </Transform>
 
     <Transform translation="10 5 10">
-        <Inline url="assets/beispiel.wrl"/>
+        <Inline url=""/>
     </Transform>
 
 
-
+<!-- Fleamarket -->
     <Transform translation="0 0 0">
-        <Inline url="ctFleamarke_0415.wrl"/>
+        <Inline url="ctFleamarket_0415.wrl"/>
     </Transform>
 
 
