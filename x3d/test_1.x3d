@@ -31,8 +31,8 @@
           <Material diffuseColor="0.2 0.8 1"/>
         </Appearance>
 
-        <Text string='"{ ... }"'>
-          <FontStyle justify='"MIDDLE" "MIDDLE"' size="1.2"/>
+        <Text string='"{ ... OnAir ... }"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size="10.2"/>
         </Text>
 
       </Shape>
