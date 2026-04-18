@@ -11,6 +11,7 @@
           <Material diffuseColor="1 1 1"/>
         </Appearance>
       </Shape>
+<Inline url="assets/beispiel.wrl"/>
     </Transform>
 
   </Scene>
