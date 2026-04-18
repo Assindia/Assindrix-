@@ -11,9 +11,9 @@
           <Material diffuseColor="1 1 1"/>
         </Appearance>
       </Shape>
-<Inline url="assets/beispiel.wrl"/>
-    </Transform>
 
+    </Transform>
+<!-- <Inline url="assets/beispiel.wrl"/> - - >
   </Scene>
 
 </X3D>
