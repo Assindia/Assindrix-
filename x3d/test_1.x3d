@@ -3,10 +3,10 @@
   <Scene>
 
     <!-- Kamera -->
-    <Viewpoint position="0 0 8" description="Start"/>
+    <Viewpoint position="0 0 50" description="Start"/>
 
     <!-- Licht -->
-    <DirectionalLight direction="-1 -1 -1" intensity="0.8"/>
+    <DirectionalLight direction="-1 -1 -1" intensity="2.8"/>
     <DirectionalLight direction="1 1 1" intensity="0.4"/>
 
     <!-- Rotation -->
