@@ -26,49 +26,6 @@ function initialize()
 
 
 
-
-DEF dad_boothSet00 Transform {
-     translation 50.0 2.60 0.0
-     rotation 0.0 0.0 0.0 0.0
-     scale 1.0 1.0 1.0
-    children [
-      DEF file Inline {
-       url "ctFleamarket_boothSet_00.wrl"
-      }
-    ]
-}
-
-
-DEF dad_boothSet01 Transform {
-     translation -30.0 2.6 25.0
-     rotation 0.0 0.0 0.0 0.0
-     scale 1.0 1.0 1.0
-    children [
-      DEF file Inline {
-       url "ctFleamarket_boothSet_01.wrl"
-      }
-    ]
-}
-
-
-
-DEF dad_boothSet02 Transform {
-     translation 50.0 2.6 32.0
-     rotation 0.0 0.0 0.0 0.0
-     scale 1.0 1.0 1.0
-    children [
-      DEF boothSet01 Inline {
-       url "ctFleamarket_boothSet_02.wrl"
-      }
-    ]
-}
-
-
-
-
-
-
-
 DirectionalLight {
 direction 0 -1 -1
 }
