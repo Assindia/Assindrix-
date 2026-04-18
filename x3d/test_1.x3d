@@ -1,1 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile='Immersive' version='4.0'>
+  <Scene>
 
+    <!-- Kamera -->
+    <Viewpoint position="0 0 8" description="Start"/>
+
+    <!-- Licht -->
+    <DirectionalLight direction="-1 -1 -1" intensity="0.8"/>
+    <DirectionalLight direction="1 1 1" intensity="0.4"/>
+
+    <!-- Rotation -->
+    <TimeSensor DEF="TIMER" cycleInterval="6" loop="true"/>
+    <OrientationInterpolator DEF="ROTATE"
+        key="0 1"
+        keyValue="0 1 0 0   0 1 0 6.28"/>
+
+    <!-- ROUTES -->
+    <ROUTE fromNode="TIMER" fromField="fraction_changed"
+           toNode="ROTATE" toField="set_fraction"/>
+
+    <!-- Transform für Rotation -->
+    <Transform DEF="ROOT">
+
+      <ROUTE fromNode="ROTATE" fromField="value_changed"
+             toNode="ROOT" toField="rotation"/>
+
+      <!-- DEIN OBJEKT -->
+      <Shape>
+        <Appearance>
+          <Material diffuseColor="0.2 0.8 1"/>
+        </Appearance>
+
+        <Text string='"{ ... }"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size="1.2"/>
+        </Text>
+
+      </Shape>
+
+    </Transform>
+
+  </Scene>
+</X3D>
