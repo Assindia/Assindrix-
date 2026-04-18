@@ -6,7 +6,7 @@
     <!-- Kegel -->
     <Transform translation="0 0 0">
        <Shape>
-        <Cone bottomRadius="2" height="3"/>
+        <Cone bottomRadius="1" height="5"/>
         <Appearance>
           <Material diffuseColor="1 1 1"/>
         </Appearance>
