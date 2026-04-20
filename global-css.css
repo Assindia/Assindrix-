@@ -48,7 +48,7 @@
 
 .sub {
   margin-left: 3px;
-  font-size: 11px;
+  font-size: 12px;
   opacity: 0.75;
 }
 
@@ -100,7 +100,7 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns:  50px 1fr 150px ;
+  grid-template-columns:  40px 1fr 150px ;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
