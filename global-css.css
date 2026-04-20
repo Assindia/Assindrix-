@@ -100,7 +100,7 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns:  20px 1fr 130px ;
+  grid-template-columns:  25px 1fr 140px ;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -335,11 +335,11 @@ header {
 }
 
 header img {
-  width: 70px;
-  height: 90%;
+  width: 50px;
+  height: 70%;
   object-fit: cover;
   padding-top: 0.5em;
-  padding-left: 4.5em;
+  padding-left: 3.5em;
 }
 
 aside {
