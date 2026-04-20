@@ -32,7 +32,7 @@
         </Appearance>
 
         <Text string='"{ ... Liya Ceana Hyab Danayt Makda Narimin ... }"'>
-          <FontStyle justify='"MIDDLE" "MIDDLE"' size="5.2"/>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size="2.0"/>
         </Text>
 
       </Shape>
