@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#222;
+    color:white;
+}
+
+/* Inhalt */
+#content{
+    padding:20px;
+    min-height:90vh;
+}
+
+/* Footer Leiste */
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+
+    background:#111;
+    border-top:1px solid #444;
+
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+}
+
+/* Icons */
+.icon{
+    font-size:100px;
+    opacity:0.3;
+    transition:0.2s;
+}
+
+.icon.active{
+    opacity:1;
+    transform:scale(1.2);
+}
+
+#statusText{
+    margin-top:20px;
+}
+
+button{
+    padding:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="content">
+
+<h2>System UI</h2>
+
+<button onclick="systemStart()">
+Start
+</button>
+
+<div id="statusText">
+Status: wartet...
+</div>
+
+</div>
+
+<footer>
+
+<div id="iconSound" class="icon">🔊</div>
+<div id="iconVibe" class="icon">📳</div>
+<div id="iconSystem" class="icon">⚙️</div>
+
+</footer>
+
+<script>
+
+function systemStart(){
+
+    setStatus("System gestartet");
+
+    activateIcon("iconSystem");
+
+    speak("Hey du Strolch, Sprachausgabe jetzt aktiv");
+
+    activateIcon("iconSound");
+
+    vibrate([600]);
+
+    activateIcon("iconVibe");
+}
+
+function setStatus(text){
+
+    document.getElementById("statusText").innerText =
+    "Status: " + text;
+}
+
+function activateIcon(id){
+
+    document.getElementById(id).classList.add("active");
+
+    setTimeout(() => {
+
+        document.getElementById(id)
+        .classList.remove("active");
+
+    }, 200,100,400);
+}
+
+function speak(text){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.speak(
+            new SpeechSynthesisUtterance(text)
+        );
+    }
+}
+
+function vibrate(pattern){
+
+    if(navigator.vibrate){
+        navigator.vibrate(pattern);
+    }
+}
+
+</script>
+
+</body>
+</html>
